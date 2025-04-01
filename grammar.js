@@ -32,7 +32,12 @@ module.exports = grammar({
           ),
           prec.left(
             seq(
-              seq($.command, "(", repeat(seq($.expression, ",")), ")"),
+              seq(
+                $.command,
+                "(",
+                seq(repeat(seq($.expression, ",")), $.expression),
+                ")",
+              ),
               optional(
                 seq(optional($.delim), optional($.fill), $.delim, $.edge),
               ),
@@ -90,5 +95,10 @@ module.exports = grammar({
     number: ($) => /[0-9]*\.[0-9]*/,
     direction: ($) => $.variable,
   },
-  conflicts: ($) => [[$.draw_naive, $.path], [$.path], [$.expression]],
+  conflicts: ($) => [
+    [$.draw_naive, $.path],
+    [$.path],
+    [$.expression],
+    [$.draw],
+  ],
 });

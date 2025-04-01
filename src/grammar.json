@@ -198,20 +198,29 @@
                         "value": "("
                       },
                       {
-                        "type": "REPEAT",
-                        "content": {
-                          "type": "SEQ",
-                          "members": [
-                            {
-                              "type": "SYMBOL",
-                              "name": "expression"
-                            },
-                            {
-                              "type": "STRING",
-                              "value": ","
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "REPEAT",
+                            "content": {
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "expression"
+                                },
+                                {
+                                  "type": "STRING",
+                                  "value": ","
+                                }
+                              ]
                             }
-                          ]
-                        }
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "expression"
+                          }
+                        ]
                       },
                       {
                         "type": "STRING",
@@ -944,6 +953,9 @@
     ],
     [
       "expression"
+    ],
+    [
+      "draw"
     ]
   ],
   "precedences": [],
