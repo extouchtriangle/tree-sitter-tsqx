@@ -273,7 +273,7 @@
     },
     "command": {
       "type": "PATTERN",
-      "value": "rightanglemark|\\~triangle|anglemark|unitcircle|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect"
+      "value": "rotate|rightanglemark|\\~triangle|anglemark|unitcircle|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect"
     },
     "path": {
       "type": "SEQ",

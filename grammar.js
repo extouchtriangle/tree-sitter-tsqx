@@ -41,7 +41,7 @@ module.exports = grammar({
         ),
       ),
     command: ($) =>
-      /rightanglemark|\~triangle|anglemark|unitcircle|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect/,
+      /rotate|rightanglemark|\~triangle|anglemark|unitcircle|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect/,
     path: ($) =>
       seq(repeat1(seq($.variable, $.segment)), choice($.variable, $.cycle)),
     segment: ($) => "--",
