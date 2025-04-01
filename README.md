@@ -14,4 +14,7 @@ so the syntax in the parser reflects that.
 
 ## Screenshots
 
-[comparison](https://github.com/extouchtriangle/tree-sitter-tsqx/blob/main/demo.png?raw=true)
+![comparison](https://github.com/extouchtriangle/tree-sitter-tsqx/blob/main/demo.png?raw=true)
+
+- The image on the left is with treesitter, and the image on the right is
+  without treesitter.
