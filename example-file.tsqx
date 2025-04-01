@@ -8,7 +8,7 @@ unitcircle
 A--B--C--cycle / blue
 U := P+(2,0)
 V := 2*P-U
-X = reflect(B,C)*P
+X 150 = reflect(B,C)*P
 Y = reflect(C,A)*P
 Z = reflect(A,B)*P
 Y--Z / heavygreen

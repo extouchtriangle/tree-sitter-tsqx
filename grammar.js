@@ -63,7 +63,7 @@ module.exports = grammar({
         seq(optional($.number), $.color),
         seq($.color, optional($.number)),
       ),
-    set: ($) => seq($.variable, $.equals, $.value),
+    set: ($) => seq($.variable, optional($.direction), $.equals, $.value),
     variable: ($) => /([A-Za-z\&\'\_0-9]+)([0-9A-Z\.]+)?/,
     operator: ($) => choice("+", "-", "*", "/"),
     //operand: ($) => choice($.variable, $.number, $.pair, $.draw),
@@ -80,5 +80,6 @@ module.exports = grammar({
     color: ($) =>
       /(pale|light|medium|heavy|dark|deep)*(red|green|blue|cyan|black|white|gray|grey|purple|magenta|pink|yellow|olive|orange|brown)/,
     number: ($) => /[0-9]*\.[0-9]*/,
+    direction: ($) => $.variable,
   },
 });

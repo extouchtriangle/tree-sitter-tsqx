@@ -759,6 +759,18 @@
           "name": "variable"
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "direction"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "equals"
         },
@@ -875,6 +887,10 @@
     "number": {
       "type": "PATTERN",
       "value": "[0-9]*\\.[0-9]*"
+    },
+    "direction": {
+      "type": "SYMBOL",
+      "name": "variable"
     }
   },
   "extras": [
