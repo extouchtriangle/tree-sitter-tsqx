@@ -17,7 +17,7 @@ P_5 l= foot A B C
 P_6 S = (1, 2)
 P_7 NE = (1, 2)
 P_8 4E2N = (1, 2)
-P_9 1N1SE1N = (1, 2)
+P_9 123 = (1, 2)
 
 P := midpoint A--B
 P := midpoint (foot A B C)--B

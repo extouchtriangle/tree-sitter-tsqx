@@ -18,18 +18,25 @@ module.exports = grammar({
       ),
     comment: ($) => /\#.*/,
     delim: ($) => " / ",
-    draw: ($) =>
+    draw: ($) => choice($.draw_naive, seq("(", $.draw_naive, ")")),
+    draw_naive: ($) =>
       choice(
-        prec.left(
-          seq(
-            choice(seq($.command, repeat($.expression)), $.path),
-            optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+        choice(
+          prec.left(
+            seq(
+              choice(seq($.command, repeat($.expression)), $.path),
+              optional(
+                seq(optional($.delim), optional($.fill), $.delim, $.edge),
+              ),
+            ),
           ),
-        ),
-        prec.left(
-          seq(
-            seq($.command, "(", repeat(seq($.expression, ",")), ")"),
-            optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+          prec.left(
+            seq(
+              seq($.command, "(", repeat(seq($.expression, ",")), ")"),
+              optional(
+                seq(optional($.delim), optional($.fill), $.delim, $.edge),
+              ),
+            ),
           ),
         ),
       ),
