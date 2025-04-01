@@ -50,3 +50,6 @@ vEnhance has a regex-based syntax highlighter in his dotfiles.
     ```
   - Copy `integrations/nvim/highlights.scm` to
     `$XDG_CONFIG_HOME/nvim/after/queries/tsqx/`
+  - Bonus: if you use `rainbow-delimiters.nvim`,
+    copy `integrations/nvim/rainbow-delimiters.scm`
+    into the same directory that you put `highlights.scm` in.
