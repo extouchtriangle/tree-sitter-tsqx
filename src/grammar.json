@@ -850,6 +850,32 @@
       ]
     },
     "expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "expression_naive"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expression_naive"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    "expression_naive": {
       "type": "PREC_RIGHT",
       "value": 0,
       "content": {
@@ -950,6 +976,9 @@
     ],
     [
       "path"
+    ],
+    [
+      "expression_naive"
     ],
     [
       "expression"
