@@ -72,8 +72,7 @@ module.exports = grammar({
       prec.dynamic(-3, /([\-]{0,1}[A-Za-z\&\'\_0-9]+)([0-9A-Z\.]+)?/),
     operator: ($) => choice("+", "-", "*", "/"),
     //operand: ($) => choice($.variable, $.number, $.pair, $.draw),
-    expression: ($) =>
-      choice($.expression_naive, seq("(", $.expression_naive, ")")),
+    expression: ($) => choice($.expression_naive, seq("(", $.expression, ")")),
     expression_naive: ($) =>
       prec.right(
         seq(
@@ -94,7 +93,7 @@ module.exports = grammar({
     [$.draw_naive],
     [$.path],
     [$.expression_naive],
-    [$.expression],
+    [$.draw_naive, $.expression],
     [$.draw],
   ],
 });

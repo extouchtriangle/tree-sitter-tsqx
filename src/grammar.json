@@ -857,7 +857,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "expression_naive"
+              "name": "expression"
             },
             {
               "type": "STRING",
@@ -979,6 +979,7 @@
       "expression_naive"
     ],
     [
+      "draw_naive",
       "expression"
     ],
     [

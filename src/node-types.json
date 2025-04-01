@@ -96,6 +96,10 @@
       "required": true,
       "types": [
         {
+          "type": "expression",
+          "named": true
+        },
+        {
           "type": "expression_naive",
           "named": true
         }
