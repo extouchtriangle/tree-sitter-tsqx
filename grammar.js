@@ -90,7 +90,7 @@ module.exports = grammar({
         ),
       ),
     equals: ($) => /(d=|dl=|l=|=|;=|:=|\.=)/,
-    value: ($) => $.expression,
+    value: ($) => repeat1($.expression),
     pair: ($) => /\(\s*[0-9]+\s*,\s*[0-9]+\s*\)/,
     color: ($) =>
       /(pale|light|medium|heavy|dark|deep)*(red|green|blue|cyan|black|white|gray|grey|purple|magenta|pink|yellow|olive|orange|brown)/,

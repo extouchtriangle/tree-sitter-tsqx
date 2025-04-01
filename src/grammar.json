@@ -943,8 +943,11 @@
       "value": "(d=|dl=|l=|=|;=|:=|\\.=)"
     },
     "value": {
-      "type": "SYMBOL",
-      "name": "expression"
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "expression"
+      }
     },
     "pair": {
       "type": "PATTERN",
