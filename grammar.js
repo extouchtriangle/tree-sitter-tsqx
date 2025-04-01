@@ -81,7 +81,10 @@ module.exports = grammar({
     operator: ($) => choice("+", "-", "*", "/"),
     //operand: ($) => choice($.variable, $.number, $.pair, $.draw),
     expression: ($) =>
-      choice($.expression_naive, seq("(", $.expression_naive, ")")),
+      choice(
+        repeat1($.expression_naive),
+        repeat1(seq("(", $.expression_naive, ")")),
+      ),
     expression_naive: ($) =>
       prec.right(
         seq(
