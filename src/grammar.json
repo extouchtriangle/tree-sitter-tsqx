@@ -870,7 +870,7 @@
     },
     "equals": {
       "type": "PATTERN",
-      "value": "(=|;=|:=|\\.=)"
+      "value": "(d=|dl=|l=|=|;=|:=|\\.=)"
     },
     "value": {
       "type": "SYMBOL",

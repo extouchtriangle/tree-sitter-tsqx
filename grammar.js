@@ -74,7 +74,7 @@ module.exports = grammar({
           repeat(seq($.operator, choice($.number, $.variable, $.pair, $.draw))),
         ),
       ),
-    equals: ($) => /(=|;=|:=|\.=)/,
+    equals: ($) => /(d=|dl=|l=|=|;=|:=|\.=)/,
     value: ($) => $.expression,
     pair: ($) => /\([0-9]+\s*,[0-9]+\s*\)/,
     color: ($) =>
