@@ -237,6 +237,11 @@
     }
   },
   {
+    "type": "variable",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "\n",
     "named": false
   },
@@ -310,10 +315,6 @@
   },
   {
     "type": "segment",
-    "named": true
-  },
-  {
-    "type": "variable",
     "named": true
   }
 ]
