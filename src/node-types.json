@@ -187,17 +187,7 @@
   {
     "type": "pair",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "number",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "path",
