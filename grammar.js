@@ -22,26 +22,18 @@ module.exports = grammar({
     draw_naive: ($) =>
       choice(
         choice(
-          prec.left(
-            seq(
-              choice(seq($.command, repeat($.expression)), $.path),
-              optional(
-                seq(optional($.delim), optional($.fill), $.delim, $.edge),
-              ),
-            ),
+          seq(
+            choice(seq($.command, repeat($.expression)), $.path),
+            optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
           ),
-          prec.left(
+          seq(
             seq(
-              seq(
-                $.command,
-                "(",
-                seq(repeat(seq($.expression, ",")), $.expression),
-                ")",
-              ),
-              optional(
-                seq(optional($.delim), optional($.fill), $.delim, $.edge),
-              ),
+              $.command,
+              "(",
+              seq(repeat(seq($.expression, ",")), $.expression),
+              ")",
             ),
+            optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
           ),
         ),
       ),
@@ -99,6 +91,7 @@ module.exports = grammar({
   },
   conflicts: ($) => [
     [$.draw_naive, $.path],
+    [$.draw_naive],
     [$.path],
     [$.expression_naive],
     [$.expression],
