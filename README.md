@@ -35,6 +35,7 @@ vEnhance has a regex-based syntax highlighter in his dotfiles.
   - In your `init.lua` file (or similar),
     paste the following:
     ```lua
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
     parser_config.tsqx = {
       install_info = {
         url = "https://github.com/extouchtriangle/tree-sitter-tsqx", -- local path or git repo
