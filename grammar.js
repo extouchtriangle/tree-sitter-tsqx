@@ -14,9 +14,15 @@ module.exports = grammar({
     line: ($) => seq(choice($.draw, $.set), "\n"),
     delim: ($) => " / ",
     draw: ($) =>
-      seq(
-        choice(seq($.command, repeat($.variable)), $.path),
-        optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+      choice(
+        seq(
+          choice(seq($.command, repeat($.variable)), $.path),
+          optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+        ),
+        seq(
+          seq($.command, "(", repeat(seq($.variable, ",")), ")"),
+          optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+        ),
       ),
     command: ($) =>
       /rightanglemark|\~triangle|anglemark|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect/,
