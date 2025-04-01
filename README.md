@@ -24,7 +24,7 @@ so the syntax in the parser reflects that.
 
 ## Integrations
 
-NOTE: if your editor doesn't support Treesitter (such as Vim),
+NOTE: if your editor doesn't support Treesitter (like Vim),
 vEnhance has a regex-based syntax highlighter in his dotfiles.
 
 - Neovim:
