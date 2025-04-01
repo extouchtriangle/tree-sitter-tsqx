@@ -1,7 +1,7 @@
 /**
  * @file A parser for cjquines/tsqx, a wrapper around asymptote.
  * @author extouchtriangle
- * @license GPL
+ * @license GPLv3 (see LICENSE)
  */
 
 module.exports = grammar({
