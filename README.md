@@ -18,3 +18,15 @@ so the syntax in the parser reflects that.
 
 - The image on the left is with treesitter, and the image on the right is
   without treesitter.
+
+![tree](https://github.com/extouchtriangle/tree-sitter-tsqx/blob/main/tree.png?raw=true)
+
+- An example of a parsed syntax tree.
+
+## Integrations
+
+- `nvim-treesitter`:
+  - Copy `tsqx.so` to `$XDG_CONFIG_HOME/nvim/after/parser/`
+  - Copy `highlights.scm` to
+    `$XDG_CONFIG_HOME/nvim/after/queries/tsqx/`
+  - (If a directory doesn't exist, just create it)
