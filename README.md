@@ -26,6 +26,7 @@ so the syntax in the parser reflects that.
 ## Integrations
 
 - `nvim-treesitter`:
+  - Run `tree-sitter build`
   - Copy `tsqx.so` to `$XDG_CONFIG_HOME/nvim/after/parser/`
   - Copy `highlights.scm` to
     `$XDG_CONFIG_HOME/nvim/after/queries/tsqx/`
