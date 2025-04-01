@@ -71,7 +71,8 @@ module.exports = grammar({
         seq($.color, optional($.number)),
       ),
     set: ($) => seq($.variable, optional($.direction), $.equals, $.value),
-    variable: ($) => prec.dynamic(-3, /([\-A-Za-z\&\'\_0-9]+)([0-9A-Z\.]+)?/),
+    variable: ($) =>
+      prec.dynamic(-3, /([\-]*[A-Za-z\&\'\_0-9]+)([0-9A-Z\.]+)?/),
     operator: ($) => choice("+", "-", "*", "/"),
     //operand: ($) => choice($.variable, $.number, $.pair, $.draw),
     expression: ($) =>
