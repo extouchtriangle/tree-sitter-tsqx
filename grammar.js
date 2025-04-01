@@ -82,7 +82,6 @@ module.exports = grammar({
       ),
     equals: ($) => /(d=|dl=|l=|=|;=|:=|\.=)/,
     value: ($) => repeat1($.expression),
-    pair: ($) => /\(\s*[0-9]+\s*,\s*[0-9]+\s*\)/,
     pair: ($) =>
       seq(
         "(",
@@ -92,7 +91,7 @@ module.exports = grammar({
 
     color: ($) =>
       /(pale|light|medium|heavy|dark|deep)*(red|green|blue|cyan|black|white|gray|grey|purple|magenta|pink|yellow|olive|orange|brown)/,
-    number: ($) => /[0-9]*\.[0-9]*/,
+    number: ($) => /\-*[0-9]+\.{0,1}[0-9]*/,
     direction: ($) => $.variable,
   },
   conflicts: ($) => [
