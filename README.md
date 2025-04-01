@@ -11,3 +11,7 @@ so the syntax in the parser reflects that.
 > Even though the syntax is close to complete in terms
 > of implementation, this is still in the alpha stage.
 > Expect breaking changes to be pushed at any moment.
+
+## Screenshots
+
+[comparison](https://github.com/extouchtriangle/tree-sitter-tsqx/blob/main/demo.png?raw=true)
