@@ -43,7 +43,7 @@ module.exports = grammar({
     command: ($) =>
       /rotate|shift|rightanglemark|\~triangle|anglemark|unitcircle|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect/,
     path: ($) =>
-      seq(repeat1(seq($.variable, $.segment)), choice($.variable, $.cycle)),
+      seq(repeat1(seq($.expression, $.segment)), choice($.expression, $.cycle)),
     segment: ($) => "--",
     cycle: ($) => "cycle",
     stroke: ($) => choice("dotted", "dashed"),
@@ -90,4 +90,5 @@ module.exports = grammar({
     number: ($) => /[0-9]*\.[0-9]*/,
     direction: ($) => $.variable,
   },
+  conflicts: ($) => [[$.draw_naive, $.path], [$.path], [$.expression]],
 });

@@ -178,11 +178,11 @@
           "named": true
         },
         {
-          "type": "segment",
+          "type": "expression",
           "named": true
         },
         {
-          "type": "variable",
+          "type": "segment",
           "named": true
         }
       ]

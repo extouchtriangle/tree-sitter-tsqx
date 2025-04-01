@@ -285,7 +285,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "variable"
+                "name": "expression"
               },
               {
                 "type": "SYMBOL",
@@ -299,7 +299,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "variable"
+              "name": "expression"
             },
             {
               "type": "SYMBOL",
@@ -934,7 +934,18 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "draw_naive",
+      "path"
+    ],
+    [
+      "path"
+    ],
+    [
+      "expression"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],
