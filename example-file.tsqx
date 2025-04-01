@@ -1,7 +1,30 @@
-~triangle A B C
-circumcircle A B C / blue
-A--B--C--cycle / blue 1.3 dashed
-X = dir 180 + (0,0)
-O = (0,0)
+A = dir 110
+B = dir 195
+C = dir 325
+P = dir 270
 
+unitcircle
+A--B--C--cycle / blue
+U := P+(2,0)
+V := 2*P-U
+X = reflect(B,C)*P
+Y = reflect(C,A)*P
+Z = reflect(A,B)*P
+Y--Z / heavygreen
+# this is a comment
+X1 := extension B C U V
+Y1 := extension C A U V
+Z1 := extension A B U V
+Line Y1 Z1
 
+A_1 = extension Y Y1 Z Z1
+B_1 = extension Z Z1 X X1
+C_1 = extension X X1 Y Y1
+A_1--B_1--C_1--cycle / red
+circumcircle A_1 B_1 C_1
+
+circumcircle B Z X / dotted
+circumcircle C X Y / dotted blue
+circumcircle A Y Z / dotted
+
+M = extension A_1 A*A/P B_1 B*B/P

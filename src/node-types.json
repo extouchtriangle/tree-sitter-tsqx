@@ -20,15 +20,15 @@
           "named": true
         },
         {
+          "type": "expression",
+          "named": true
+        },
+        {
           "type": "fill",
           "named": true
         },
         {
           "type": "path",
-          "named": true
-        },
-        {
-          "type": "variable",
           "named": true
         }
       ]
@@ -66,11 +66,23 @@
       "required": true,
       "types": [
         {
-          "type": "operand",
+          "type": "draw",
+          "named": true
+        },
+        {
+          "type": "number",
           "named": true
         },
         {
           "type": "operator",
+          "named": true
+        },
+        {
+          "type": "pair",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -100,42 +112,19 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
         {
           "type": "draw",
           "named": true
         },
         {
           "type": "set",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "operand",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "draw",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "pair",
-          "named": true
-        },
-        {
-          "type": "variable",
           "named": true
         }
       ]
@@ -266,6 +255,10 @@
   },
   {
     "type": "command",
+    "named": true
+  },
+  {
+    "type": "comment",
     "named": true
   },
   {
