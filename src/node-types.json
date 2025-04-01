@@ -1,6 +1,6 @@
 [
   {
-    "type": "function",
+    "type": "draw",
     "named": true,
     "fields": {},
     "children": {
@@ -12,7 +12,84 @@
           "named": true
         },
         {
+          "type": "delim",
+          "named": true
+        },
+        {
+          "type": "edge",
+          "named": true
+        },
+        {
+          "type": "fill",
+          "named": true
+        },
+        {
+          "type": "path",
+          "named": true
+        },
+        {
           "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "edge",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "color",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "stroke",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "operand",
+          "named": true
+        },
+        {
+          "type": "operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fill",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "color",
+          "named": true
+        },
+        {
+          "type": "number",
           "named": true
         }
       ]
@@ -27,11 +104,66 @@
       "required": true,
       "types": [
         {
-          "type": "function",
+          "type": "draw",
           "named": true
         },
         {
           "type": "set",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operand",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "draw",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "pair",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cycle",
+          "named": true
+        },
+        {
+          "type": "segment",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -77,6 +209,11 @@
     }
   },
   {
+    "type": "stroke",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "value",
     "named": true,
     "fields": {},
@@ -85,11 +222,7 @@
       "required": true,
       "types": [
         {
-          "type": "function",
-          "named": true
-        },
-        {
-          "type": "pair",
+          "type": "expression",
           "named": true
         }
       ]
@@ -100,15 +233,59 @@
     "named": false
   },
   {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "color",
+    "named": true
+  },
+  {
     "type": "command",
     "named": true
+  },
+  {
+    "type": "cycle",
+    "named": true
+  },
+  {
+    "type": "dashed",
+    "named": false
+  },
+  {
+    "type": "delim",
+    "named": true
+  },
+  {
+    "type": "dotted",
+    "named": false
   },
   {
     "type": "equals",
     "named": true
   },
   {
+    "type": "number",
+    "named": true
+  },
+  {
     "type": "pair",
+    "named": true
+  },
+  {
+    "type": "segment",
     "named": true
   },
   {
