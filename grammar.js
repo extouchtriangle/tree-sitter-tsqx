@@ -18,8 +18,7 @@ module.exports = grammar({
       ),
     comment: ($) => /\#.*/,
     delim: ($) => " / ",
-    draw: ($) => choice($.draw_naive, seq("(", $.draw_naive, ")")),
-    draw_naive: ($) =>
+    draw: ($) =>
       choice(
         choice(
           seq(
@@ -36,6 +35,31 @@ module.exports = grammar({
             optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
           ),
         ),
+        seq(
+          "(",
+          choice(
+            choice(
+              seq(
+                choice(seq($.command, repeat($.expression)), $.path),
+                optional(
+                  seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                ),
+              ),
+              seq(
+                seq(
+                  $.command,
+                  "(",
+                  seq(repeat(seq($.expression, ",")), $.expression),
+                  ")",
+                ),
+                optional(
+                  seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                ),
+              ),
+            ),
+          ),
+        ),
+        ")",
       ),
     command: ($) =>
       /rotate|shift|rightanglemark|\~triangle|anglemark|unitcircle|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect/,
@@ -72,12 +96,27 @@ module.exports = grammar({
       prec.dynamic(-3, /([\-]{0,1}[A-Za-z\&\'\_0-9]+)([0-9A-Z\.]+)?/),
     operator: ($) => choice("+", "-", "*", "/"),
     //operand: ($) => choice($.variable, $.number, $.pair, $.draw),
-    expression: ($) => choice($.expression_naive, seq("(", $.expression, ")")),
-    expression_naive: ($) =>
-      prec.right(
+    expression: ($) =>
+      choice(
+        prec.right(
+          seq(
+            choice($.variable, $.number, $.pair, $.draw),
+            repeat(
+              seq($.operator, choice($.number, $.variable, $.pair, $.draw)),
+            ),
+          ),
+        ),
         seq(
-          choice($.variable, $.number, $.pair, $.draw),
-          repeat(seq($.operator, choice($.number, $.variable, $.pair, $.draw))),
+          "(",
+          prec.right(
+            seq(
+              choice($.variable, $.number, $.pair, $.draw),
+              repeat(
+                seq($.operator, choice($.number, $.variable, $.pair, $.draw)),
+              ),
+            ),
+          ),
+          ")",
         ),
       ),
     equals: ($) => /(d=|dl=|l=|=|;=|:=|\.=)/,
@@ -94,12 +133,5 @@ module.exports = grammar({
     number: ($) => /\-*[0-9]+\.{0,1}[0-9]*/,
     direction: ($) => $.variable,
   },
-  conflicts: ($) => [
-    [$.draw_naive, $.path],
-    [$.draw_naive],
-    [$.path],
-    [$.expression_naive],
-    [$.draw_naive, $.expression],
-    [$.draw],
-  ],
+  conflicts: ($) => [[$.draw, $.path], [$.path], [$.expression], [$.draw]],
 });

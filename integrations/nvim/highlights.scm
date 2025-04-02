@@ -6,7 +6,7 @@
 (color) @keyword
 (segment) @operator
 (cycle) @keyword
-(delim) @comment
+(delim) @operator
 (stroke) @keyword
 (operator) @operator
 (number) @constant
