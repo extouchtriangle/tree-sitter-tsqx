@@ -7,6 +7,6 @@
 (expression
   "(" @delimiter
   ")" @delimiter @sentinel) @container
-(draw_naive
+(draw
   "(" @delimiter
   ")" @delimiter @sentinel) @container

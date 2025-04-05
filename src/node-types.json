@@ -168,11 +168,19 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "draw",
+          "named": true
+        },
+        {
+          "type": "pair",
           "named": true
         },
         {
           "type": "segment",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
