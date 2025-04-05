@@ -23,11 +23,42 @@
       "required": true,
       "types": [
         {
+          "type": "draw_cmd",
+          "named": true
+        },
+        {
           "type": "draw_nopath",
           "named": true
         },
         {
           "type": "draw_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "draw_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "delim",
+          "named": true
+        },
+        {
+          "type": "edge",
+          "named": true
+        },
+        {
+          "type": "fill",
           "named": true
         }
       ]

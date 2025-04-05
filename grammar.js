@@ -23,19 +23,22 @@ module.exports = grammar({
         100,
         choice(
           choice(
-            seq(
+            prec.dynamic(
+              1000,
               seq(
-                $.command,
-                "(",
-                seq(repeat(seq($.expression, ",")), $.expression),
-                ")",
-              ),
-              optional(
-                seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                seq(
+                  $.command,
+                  "(",
+                  seq(repeat(seq($.expression, ",")), $.expression),
+                  ")",
+                ),
+                optional(
+                  seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                ),
               ),
             ),
             seq(
-              seq($.command, repeat($.expression)),
+              seq($.command, repeat1($.expression)),
               optional(
                 seq(optional($.delim), optional($.fill), $.delim, $.edge),
               ),
@@ -111,7 +114,30 @@ module.exports = grammar({
         ),
         ")",
       ),
-    draw: ($) => choice($.draw_path, $.draw_nopath),
+    draw_cmd: ($) =>
+      choice(
+        choice(
+          seq(
+            $.command,
+            optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+          ),
+        ),
+        seq(
+          "(",
+          choice(
+            choice(
+              seq(
+                $.command,
+                optional(
+                  seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                ),
+              ),
+            ),
+          ),
+        ),
+        ")",
+      ),
+    draw: ($) => choice($.draw_path, $.draw_nopath, $.draw_cmd),
     command: () =>
       /rotate|shift|rightanglemark|\~triangle|anglemark|unitcircle|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect/,
     path: ($) =>
@@ -196,5 +222,7 @@ module.exports = grammar({
     [$.draw_path],
     [$.draw, $.path],
     [$.path, $.expression],
+    [$.draw_cmd],
+    [$.draw_nopath, $.draw_cmd],
   ],
 });
