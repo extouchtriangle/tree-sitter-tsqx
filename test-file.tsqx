@@ -1,3 +1,4 @@
+Y = reflect(C)*P
 ~triangle A B C
 
 P = (1, 2)

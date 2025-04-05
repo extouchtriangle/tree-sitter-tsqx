@@ -17,7 +17,7 @@ module.exports = grammar({
         seq($.comment, "\n"),
       ),
     comment: ($) => /\#.*/,
-    delim: ($) => " / ",
+    delim: ($) => choice(" / ", " /"),
     draw_nopath: ($) =>
       prec(
         100,

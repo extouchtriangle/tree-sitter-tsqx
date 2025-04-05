@@ -1,5 +1,10 @@
 [
   {
+    "type": "delim",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "direction",
     "named": true,
     "fields": {},
@@ -340,6 +345,14 @@
     "named": false
   },
   {
+    "type": " /",
+    "named": false
+  },
+  {
+    "type": " / ",
+    "named": false
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -386,10 +399,6 @@
   {
     "type": "dashed",
     "named": false
-  },
-  {
-    "type": "delim",
-    "named": true
   },
   {
     "type": "dotted",

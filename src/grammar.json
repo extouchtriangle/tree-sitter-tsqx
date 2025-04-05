@@ -66,8 +66,17 @@
       "value": "\\#.*"
     },
     "delim": {
-      "type": "STRING",
-      "value": " / "
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": " / "
+        },
+        {
+          "type": "STRING",
+          "value": " /"
+        }
+      ]
     },
     "draw_nopath": {
       "type": "PREC",
