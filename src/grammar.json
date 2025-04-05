@@ -161,8 +161,16 @@
                               "name": "delim"
                             },
                             {
-                              "type": "SYMBOL",
-                              "name": "edge"
+                              "type": "CHOICE",
+                              "members": [
+                                {
+                                  "type": "SYMBOL",
+                                  "name": "edge"
+                                },
+                                {
+                                  "type": "BLANK"
+                                }
+                              ]
                             }
                           ]
                         },
@@ -228,8 +236,16 @@
                             "name": "delim"
                           },
                           {
-                            "type": "SYMBOL",
-                            "name": "edge"
+                            "type": "CHOICE",
+                            "members": [
+                              {
+                                "type": "SYMBOL",
+                                "name": "edge"
+                              },
+                              {
+                                "type": "BLANK"
+                              }
+                            ]
                           }
                         ]
                       },
@@ -309,8 +325,16 @@
                                     "name": "delim"
                                   },
                                   {
-                                    "type": "SYMBOL",
-                                    "name": "edge"
+                                    "type": "CHOICE",
+                                    "members": [
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "edge"
+                                      },
+                                      {
+                                        "type": "BLANK"
+                                      }
+                                    ]
                                   }
                                 ]
                               },
@@ -401,8 +425,16 @@
                                     "name": "delim"
                                   },
                                   {
-                                    "type": "SYMBOL",
-                                    "name": "edge"
+                                    "type": "CHOICE",
+                                    "members": [
+                                      {
+                                        "type": "SYMBOL",
+                                        "name": "edge"
+                                      },
+                                      {
+                                        "type": "BLANK"
+                                      }
+                                    ]
                                   }
                                 ]
                               },
@@ -474,8 +506,16 @@
                           "name": "delim"
                         },
                         {
-                          "type": "SYMBOL",
-                          "name": "edge"
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "edge"
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -566,8 +606,16 @@
                           "name": "delim"
                         },
                         {
-                          "type": "SYMBOL",
-                          "name": "edge"
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "edge"
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -635,8 +683,16 @@
                                   "name": "delim"
                                 },
                                 {
-                                  "type": "SYMBOL",
-                                  "name": "edge"
+                                  "type": "CHOICE",
+                                  "members": [
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "edge"
+                                    },
+                                    {
+                                      "type": "BLANK"
+                                    }
+                                  ]
                                 }
                               ]
                             },
@@ -727,8 +783,16 @@
                                   "name": "delim"
                                 },
                                 {
-                                  "type": "SYMBOL",
-                                  "name": "edge"
+                                  "type": "CHOICE",
+                                  "members": [
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "edge"
+                                    },
+                                    {
+                                      "type": "BLANK"
+                                    }
+                                  ]
                                 }
                               ]
                             },
@@ -799,8 +863,16 @@
                           "name": "delim"
                         },
                         {
-                          "type": "SYMBOL",
-                          "name": "edge"
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "SYMBOL",
+                              "name": "edge"
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
                         }
                       ]
                     },
@@ -868,8 +940,16 @@
                                   "name": "delim"
                                 },
                                 {
-                                  "type": "SYMBOL",
-                                  "name": "edge"
+                                  "type": "CHOICE",
+                                  "members": [
+                                    {
+                                      "type": "SYMBOL",
+                                      "name": "edge"
+                                    },
+                                    {
+                                      "type": "BLANK"
+                                    }
+                                  ]
                                 }
                               ]
                             },

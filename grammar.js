@@ -33,14 +33,24 @@ module.exports = grammar({
                   ")",
                 ),
                 optional(
-                  seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                  seq(
+                    optional($.delim),
+                    optional($.fill),
+                    $.delim,
+                    optional($.edge),
+                  ),
                 ),
               ),
             ),
             seq(
               seq($.command, repeat1($.expression)),
               optional(
-                seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                seq(
+                  optional($.delim),
+                  optional($.fill),
+                  $.delim,
+                  optional($.edge),
+                ),
               ),
             ),
           ),
@@ -51,7 +61,12 @@ module.exports = grammar({
                 seq(
                   seq($.command, repeat($.expression)),
                   optional(
-                    seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                    seq(
+                      optional($.delim),
+                      optional($.fill),
+                      $.delim,
+                      optional($.edge),
+                    ),
                   ),
                 ),
                 seq(
@@ -62,7 +77,12 @@ module.exports = grammar({
                     ")",
                   ),
                   optional(
-                    seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                    seq(
+                      optional($.delim),
+                      optional($.fill),
+                      $.delim,
+                      optional($.edge),
+                    ),
                   ),
                 ),
               ),
@@ -76,7 +96,14 @@ module.exports = grammar({
         choice(
           seq(
             $.path,
-            optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+            optional(
+              seq(
+                optional($.delim),
+                optional($.fill),
+                $.delim,
+                optional($.edge),
+              ),
+            ),
           ),
           seq(
             seq(
@@ -85,7 +112,14 @@ module.exports = grammar({
               seq(repeat(seq($.expression, ",")), $.expression),
               ")",
             ),
-            optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+            optional(
+              seq(
+                optional($.delim),
+                optional($.fill),
+                $.delim,
+                optional($.edge),
+              ),
+            ),
           ),
         ),
         seq(
@@ -95,7 +129,12 @@ module.exports = grammar({
               seq(
                 $.path,
                 optional(
-                  seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                  seq(
+                    optional($.delim),
+                    optional($.fill),
+                    $.delim,
+                    optional($.edge),
+                  ),
                 ),
               ),
               seq(
@@ -106,7 +145,12 @@ module.exports = grammar({
                   ")",
                 ),
                 optional(
-                  seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                  seq(
+                    optional($.delim),
+                    optional($.fill),
+                    $.delim,
+                    optional($.edge),
+                  ),
                 ),
               ),
             ),
@@ -119,7 +163,14 @@ module.exports = grammar({
         choice(
           seq(
             $.command,
-            optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
+            optional(
+              seq(
+                optional($.delim),
+                optional($.fill),
+                $.delim,
+                optional($.edge),
+              ),
+            ),
           ),
         ),
         seq(
@@ -129,7 +180,12 @@ module.exports = grammar({
               seq(
                 $.command,
                 optional(
-                  seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                  seq(
+                    optional($.delim),
+                    optional($.fill),
+                    $.delim,
+                    optional($.edge),
+                  ),
                 ),
               ),
             ),
