@@ -18,11 +18,61 @@ module.exports = grammar({
       ),
     comment: ($) => /\#.*/,
     delim: ($) => " / ",
-    draw: ($) =>
+    draw_nopath: ($) =>
+      prec(
+        100,
+        choice(
+          choice(
+            seq(
+              seq($.command, repeat($.expression)),
+              optional(
+                seq(optional($.delim), optional($.fill), $.delim, $.edge),
+              ),
+            ),
+            seq(
+              seq(
+                $.command,
+                "(",
+                seq(repeat(seq($.expression, ",")), $.expression),
+                ")",
+              ),
+              optional(
+                seq(optional($.delim), optional($.fill), $.delim, $.edge),
+              ),
+            ),
+          ),
+          seq(
+            "(",
+            choice(
+              choice(
+                seq(
+                  seq($.command, repeat($.expression)),
+                  optional(
+                    seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                  ),
+                ),
+                seq(
+                  seq(
+                    $.command,
+                    "(",
+                    seq(repeat(seq($.expression, ",")), $.expression),
+                    ")",
+                  ),
+                  optional(
+                    seq(optional($.delim), optional($.fill), $.delim, $.edge),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          ")",
+        ),
+      ),
+    draw_path: ($) =>
       choice(
         choice(
           seq(
-            choice(seq($.command, repeat($.expression)), $.path),
+            $.path,
             optional(seq(optional($.delim), optional($.fill), $.delim, $.edge)),
           ),
           seq(
@@ -40,7 +90,7 @@ module.exports = grammar({
           choice(
             choice(
               seq(
-                choice(seq($.command, repeat($.expression)), $.path),
+                $.path,
                 optional(
                   seq(optional($.delim), optional($.fill), $.delim, $.edge),
                 ),
@@ -61,14 +111,15 @@ module.exports = grammar({
         ),
         ")",
       ),
-    command: ($) =>
+    draw: ($) => choice($.draw_path, $.draw_nopath),
+    command: () =>
       /rotate|shift|rightanglemark|\~triangle|anglemark|unitcircle|circumcenter|orthocenter|incircle|circumcircle|centroid|incenter|midpoint|extension|foot|CP|CR|dir|conj|intersect|IP|OP|Line|bisectorpoint|arc|abs|reflect/,
     path: ($) =>
       prec(
         1000,
         seq(
-          repeat1(seq(choice($.pair, $.draw, $.variable), $.segment)),
-          choice(choice($.pair, $.draw, $.variable), $.cycle),
+          repeat1(seq(choice($.pair, $.draw_nopath, $.variable), $.segment)),
+          choice(choice($.pair, $.draw_nopath, $.variable), $.cycle),
         ),
       ),
     segment: ($) => "--",
@@ -139,5 +190,11 @@ module.exports = grammar({
     number: ($) => /\-*[0-9]+\.{0,1}[0-9]*/,
     direction: ($) => $.variable,
   },
-  conflicts: ($) => [[$.draw], [$.path, $.expression]],
+  conflicts: ($) => [
+    [$.draw_nopath, $.draw_path],
+    [$.draw_nopath],
+    [$.draw_path],
+    [$.draw, $.path],
+    [$.path, $.expression],
+  ],
 });

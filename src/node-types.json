@@ -19,6 +19,56 @@
     "named": true,
     "fields": {},
     "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "draw_nopath",
+          "named": true
+        },
+        {
+          "type": "draw_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "draw_nopath",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "delim",
+          "named": true
+        },
+        {
+          "type": "edge",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "fill",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "draw_path",
+    "named": true,
+    "fields": {},
+    "children": {
       "multiple": true,
       "required": false,
       "types": [
@@ -168,7 +218,7 @@
           "named": true
         },
         {
-          "type": "draw",
+          "type": "draw_nopath",
           "named": true
         },
         {
