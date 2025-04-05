@@ -24,18 +24,18 @@ module.exports = grammar({
         choice(
           choice(
             seq(
-              seq($.command, repeat($.expression)),
-              optional(
-                seq(optional($.delim), optional($.fill), $.delim, $.edge),
-              ),
-            ),
-            seq(
               seq(
                 $.command,
                 "(",
                 seq(repeat(seq($.expression, ",")), $.expression),
                 ")",
               ),
+              optional(
+                seq(optional($.delim), optional($.fill), $.delim, $.edge),
+              ),
+            ),
+            seq(
+              seq($.command, repeat($.expression)),
               optional(
                 seq(optional($.delim), optional($.fill), $.delim, $.edge),
               ),
