@@ -20,7 +20,7 @@ so the syntax in the parser reflects that.
   ![comparison](https://github.com/extouchtriangle/tree-sitter-tsqx/blob/main/demo.png?raw=true)
 
 - An example of a parsed syntax tree.
-  ![tree](https://github.com/extouchtriangle/tree-sitter-tsqx/blob/main/tree.png?raw=true)
+<!--  ![tree](https://github.com/extouchtriangle/tree-sitter-tsqx/blob/main/tree.png?raw=true)--->
 
 ## Integrations
 
