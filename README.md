@@ -1,4 +1,5 @@
 # tree-sitter-tsqx
+[![TSQX](https://extouchtriangle-readme-stats.vercel.app/api/pin/?username=extouchtriangle&repo=tree-sitter-tsqx&theme=tokyonight&border_color=43c2b2&show_owner=true)]
 
 This is a tree-sitter parser for
 [cjquines/tsqx](https://github.com/cjquines/tsqx).
