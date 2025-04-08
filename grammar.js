@@ -28,9 +28,9 @@ module.exports = grammar({
               seq(
                 seq(
                   $.command,
-                  "(",
+                  repeat1("("),
                   seq(repeat(seq($.expression, ",")), $.expression),
-                  ")",
+                  repeat1(")"),
                 ),
                 optional(
                   seq(
@@ -55,7 +55,7 @@ module.exports = grammar({
             ),
           ),
           seq(
-            "(",
+            repeat1("("),
             choice(
               choice(
                 seq(
@@ -72,9 +72,9 @@ module.exports = grammar({
                 seq(
                   seq(
                     $.command,
-                    "(",
+                    repeat1("("),
                     seq(repeat(seq($.expression, ",")), $.expression),
-                    ")",
+                    repeat1(")"),
                   ),
                   optional(
                     seq(
@@ -88,7 +88,7 @@ module.exports = grammar({
               ),
             ),
           ),
-          ")",
+          repeat1(")"),
         ),
       ),
     draw_path: ($) =>
@@ -108,9 +108,9 @@ module.exports = grammar({
           seq(
             seq(
               $.command,
-              "(",
+              repeat1("("),
               seq(repeat(seq($.expression, ",")), $.expression),
-              ")",
+              repeat1(")"),
             ),
             optional(
               seq(
@@ -123,7 +123,7 @@ module.exports = grammar({
           ),
         ),
         seq(
-          "(",
+          repeat1("("),
           choice(
             choice(
               seq(
@@ -140,9 +140,9 @@ module.exports = grammar({
               seq(
                 seq(
                   $.command,
-                  "(",
+                  repeat1("("),
                   seq(repeat(seq($.expression, ",")), $.expression),
-                  ")",
+                  repeat1(")"),
                 ),
                 optional(
                   seq(
@@ -156,7 +156,7 @@ module.exports = grammar({
             ),
           ),
         ),
-        ")",
+        repeat1(")"),
       ),
     draw_cmd: ($) =>
       choice(
@@ -174,7 +174,7 @@ module.exports = grammar({
           ),
         ),
         seq(
-          "(",
+          repeat1("("),
           choice(
             choice(
               seq(
@@ -191,7 +191,7 @@ module.exports = grammar({
             ),
           ),
         ),
-        ")",
+        repeat1(")"),
       ),
     draw: ($) => choice($.draw_path, $.draw_nopath, $.draw_cmd),
     command: () =>
@@ -246,7 +246,7 @@ module.exports = grammar({
           ),
         ),
         seq(
-          "(",
+          repeat1("("),
           prec.right(
             seq(
               choice($.variable, $.number, $.pair, $.draw),
@@ -255,16 +255,16 @@ module.exports = grammar({
               ),
             ),
           ),
-          ")",
+          repeat1(")"),
         ),
       ),
     equals: ($) => /(d=|dl=|l=|=|;=|:=|\.=)/,
     value: ($) => repeat1($.expression),
     pair: ($) =>
       seq(
-        "(",
+        repeat1("("),
         /\s*\-*[0-9]+\.{0,1}[0-9]*\s*,\s*\-*[0-9]+\.{0,1}[0-9]*\s*/,
-        ")",
+        repeat1(")"),
       ),
 
     color: ($) =>
@@ -280,5 +280,11 @@ module.exports = grammar({
     [$.path, $.expression],
     [$.draw_cmd],
     [$.draw_nopath, $.draw_cmd],
+    [$.pair],
+    [$.draw_nopath, $.draw_path, $.draw_cmd, $.expression, $.pair],
+    [$.draw_nopath, $.draw_path, $.draw_cmd, $.pair],
+    [$.expression],
+    [$.draw_nopath, $.draw_path, $.pair],
+    [$.draw_nopath, $.pair],
   ],
 });
